@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <a href="albums/new">New Album</a>
+    <a href="artists/new">New Artist</a>
+    <ul>
+        <% music.forEach((album) => { %>
+            <li>
+                <p><%= album.albumName %></p>
+                <p><%= album.type %></p>
+                <p><%= album.artistName%></p>
+                <p><%= album.releaseDate%></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

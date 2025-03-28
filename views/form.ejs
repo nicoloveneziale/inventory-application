@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>New <%=type%></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <form method="POST" action="/new">
+      <h1>New <%=type%></h1>
+      <%if (type == "music") {%>
+        <input placeholder="Album Name" name="albumName" type="text" required />
+        <input placeholder="Artist" name="messageText" type="text" required />
+      <%} else if (type == "artist") {%>
+        <input placeholder="Artist Name" name="artistName" type="text" required />
+        <%}%>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

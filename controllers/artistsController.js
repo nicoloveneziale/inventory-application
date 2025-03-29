@@ -6,7 +6,7 @@ async function getAllArtists(req, res) {
 }
 
 async function newArtistGet(req, res) {
-  res.render("form", { type: "artist" });
+  res.render("form", { type: "artists" });
 }
 
 async function newArtistPost(req, res) {

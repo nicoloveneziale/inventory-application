@@ -6,7 +6,8 @@ async function getAllMusic(req, res) {
 }
 
 async function newMusicGet(req, res) {
-  res.render("form", { type: "music" });
+  const artists = await db.getAllArtists();
+  res.render("form", { type: "albums", artists: artists });
 }
 
 async function newMusicPost(req, res) {

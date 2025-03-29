@@ -4,12 +4,16 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <form method="POST" action="/new">
+    <form method="POST" action=<%="/"+ type + "/new"%>>
       <h1>New <%=type%></h1>
-      <%if (type == "music") {%>
+      <%if (type == "albums") {%>
         <input placeholder="Album Name" name="albumName" type="text" required />
-        <input placeholder="Artist" name="messageText" type="text" required />
-      <%} else if (type == "artist") {%>
+        <select name="artistName">
+          <% artists.forEach((artist) => { %>
+            <option value=<%=artist.name%>><%=artist.name%></option>
+          <%});%>
+        </select>
+      <%} else if (type == "artists") {%>
         <input placeholder="Artist Name" name="artistName" type="text" required />
         <%}%>
       <button type="submit">Submit</button>

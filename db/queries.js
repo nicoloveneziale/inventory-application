@@ -28,15 +28,14 @@ async function getAllArtists() {
 }
 
 async function getArtistByName(artistName) {
-  const { rows } = await pool.query(
-    "SELECT * FROM artists WHERE artistName == ($1)",
-    [artistName],
-  );
+  const { rows } = await pool.query("SELECT * FROM artists WHERE name = ($1)", [
+    artistName,
+  ]);
   return rows;
 }
 
 async function insertArtist(artistName) {
-  await pool.query("INSERT INTO artist (artistName) VALUES ($1)", [artistName]);
+  await pool.query("INSERT INTO artists (name) VALUES ($1)", [artistName]);
 }
 
 module.exports = {

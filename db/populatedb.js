@@ -4,15 +4,17 @@ require("dotenv").config();
 const SQL = `
     CREATE TABLE IF NOT EXISTS artists (
     artistId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR( 255 ) UNIQUE
+    name VARCHAR( 255 ) UNIQUE,
+    artistCover VARCHAR(255)
     );
 
     CREATE TABLE IF NOT EXISTS music (
     musicId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     albumName TEXT,
     artistId INTEGER,
-    releaseDate DATE,
+    releaseDate INTEGER,
     type VARCHAR( 255 ),
+    albumCover VARCHAR(255),
     FOREIGN KEY (artistId) REFERENCES artists(artistId)
     );
 `;

@@ -4,24 +4,43 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <form method="POST" action=<%="/"+ type + "/new"%>>
+    <form
+      method="POST"
+      action=<%="/"+ type + "/new"%>
+      enctype="multipart/form-data"
+    >
       <h1>New <%=type%></h1>
-      <%if (type == "albums") {%>
-        <input placeholder="Album Name" name="albumName" type="text" required />
-        <select name="artistName">
-          <% artists.forEach((artist) => { %>
-            <option value=<%=artist.name%>><%=artist.name%></option>
-          <%});%>
-        </select>
-        <input placeholder="Release Date" name="releaseDate" type="date" required />
-        <select name="type">
-          
-          <option value="vinyl">Vinyl</option>
-          <option value=CD>CD</option>
-        </select>
-      <%} else if (type == "artists") {%>
-        <input placeholder="Artist Name" name="artistName" type="text" required />
-        <%}%>
+      <% if (type == "albums") { %>
+      <input
+        placeholder="Album Name"
+        name="albumName"
+        type="text"
+        required
+      />
+      <select name="artistName">
+        <% artists.forEach((artist) => { %>
+        <option value="<%= artist.name %>"><%= artist.name %></option>
+        <% }); %>
+      </select>
+      <input
+        placeholder="Release Year"
+        name="releaseDate"
+        type="number"
+        required
+      />
+      <select name="type">
+        <option value="Vinyl">Vinyl</option>
+        <option value="CD">CD</option>
+      </select>
+      <input type="file" name="albumCover" accept="image/*" />
+      <% } else if (type == "artists") { %>
+      <input
+        placeholder="Artist Name"
+        name="artistName"
+        type="text"
+        required
+      />
+      <% } %>
       <button type="submit">Submit</button>
     </form>
   </body>

@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Update <%=type%></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <form method="POST" action=<%="/"+ type + "/" + (type === 'albums' ? album.musicid : artist.artistid) + "/update"  %>>
+      <h1>Update <%=type%></h1>
+      <% if (type === "albums") { %>
+        <input
+          placeholder="Album Name"
+          name="albumName"
+          type="text"
+          value="<%= album.albumname %>"
+          required
+        />
+        <select name="artistName">
+          <% artists.forEach((artist) => { %>
+            <option
+              value="<%= artist.name %>"
+              <%= artist.name === album.name ? 'selected' : '' %>
+            >
+              <%= artist.name %>
+            </option>
+          <% }); %>
+        </select>
+        <input
+          name="releaseDate"
+          type="number"
+          value="<%= album.releasedate %>"
+          required
+        />
+        <select name="type">
+          <option value="Vinyl" <%= album.type === 'Vinyl' ? 'selected' : '' %>>Vinyl</option>
+          <option value="CD" <%= album.type === 'CD' ? 'selected' : '' %>>CD</option>
+        </select>
+      <% } else if (type === "artists") { %>
+        <input
+          placeholder="Artist Name"
+          name="artistName"
+          type="text"
+          value="<%= artist.name %>"
+          required
+        />
+      <% } %>
+      <button type="submit">Update</button>
+    </form>
+  </body>
+</html>

@@ -12,8 +12,8 @@ async function newMusicGet(req, res) {
 
 async function newMusicPost(req, res) {
   const { albumName, artistName, releaseDate, type } = req.body;
-  const { artistId } = db.getArtistByName(artistName);
-  await db.insertMusic(albumName, artistId, releaseDate, type);
+  const { artistid } = (await db.getArtistByName(artistName))[0];
+  await db.insertMusic(albumName, artistid, releaseDate, type);
   res.redirect("/");
 }
 

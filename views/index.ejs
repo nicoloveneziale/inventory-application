@@ -7,15 +7,18 @@
     <h1><%= title %></h1>
     <a href="albums/new">New Album</a>
     <a href="artists/new">New Artist</a>
+    <div>
+        <h1>Music</h1>
     <ul>
         <% music.forEach((album) => { %>
             <li>
-                <p><%= album.albumName %></p>
+                <p><%= album.albumname %></p>
                 <p><%= album.type %></p>
-                <p><%= album.artistName%></p>
-                <p><%= album.releaseDate%></p>
+                <p><%= album.name%></p>
+                <p><%= album.releasedate%></p>
             </li>
         <% }); %>
     </ul>
+    </div>
 </body>
 </html>

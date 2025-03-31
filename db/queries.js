@@ -3,14 +3,12 @@ const pool = require("./pool");
 async function getAllMusic() {
   const { rows } = await pool.query(`
     SELECT
-      music.albumName,
-      music.releaseDate,
-      music.type,
-      artists.name AS artistName
+      albumName, type, releaseDate, name
     FROM
       music
-    JOIN
-      artists ON music.artistId = artists.artistId;
+      INNER JOIN artists
+      ON music.artistId = artists.artistId
+    ;
   `);
   return rows;
 }
@@ -28,10 +26,16 @@ async function getAllArtists() {
 }
 
 async function getArtistByName(artistName) {
-  const { rows } = await pool.query("SELECT * FROM artists WHERE name = ($1)", [
-    artistName,
-  ]);
-  return rows;
+  try {
+    const { rows } = await pool.query(
+      "SELECT * FROM artists WHERE name = ($1)",
+      [artistName],
+    );
+    return rows;
+  } catch (error) {
+    console.error("Database error:", error);
+    return [];
+  }
 }
 
 async function insertArtist(artistName) {

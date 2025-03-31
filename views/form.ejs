@@ -13,6 +13,12 @@
             <option value=<%=artist.name%>><%=artist.name%></option>
           <%});%>
         </select>
+        <input placeholder="Release Date" name="releaseDate" type="date" required />
+        <select name="type">
+          
+          <option value="vinyl">Vinyl</option>
+          <option value=CD>CD</option>
+        </select>
       <%} else if (type == "artists") {%>
         <input placeholder="Artist Name" name="artistName" type="text" required />
         <%}%>

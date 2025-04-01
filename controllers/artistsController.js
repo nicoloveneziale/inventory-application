@@ -12,6 +12,7 @@ async function newArtistGet(req, res) {
 async function newArtistPost(req, res) {
   try {
     const { artistName } = req.body;
+    console.log(req.body);
     await db.insertArtist(artistName);
     res.redirect("/");
   } catch (error) {

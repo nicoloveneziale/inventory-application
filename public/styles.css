@@ -1,0 +1,247 @@
+/* styles.css */
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.music-section,
+.artist-section {
+  margin-bottom: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.music-section h1,
+.artist-section h1 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.album-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.album-cover {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.album-info {
+  padding: 1rem;
+}
+
+.album-name {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.artist-name,
+.release-date {
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.album-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.album-actions a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.album-actions a:hover {
+  background-color: #e0f7fa;
+}
+
+.artist-list {
+  list-style: none;
+  padding: 0;
+}
+
+.artist-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.artist-item:last-child {
+  border-bottom: none;
+}
+
+.artist-item a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.artist-item a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Form Styles */
+form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  margin: 20px auto; /* Center form */
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form input[type="file"],
+form button {
+  width: calc(100% - 22px); /* Adjust for padding and border */
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+form input[type="file"] {
+  padding: 5px;
+}
+
+select {
+  appearance: none; /* Remove default arrow in some browsers */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 16px;
+  padding-right: 30px; /* Space for the arrow */
+}
+
+/* Artist Detail Page Styles */
+.artist-detail {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+.artist-detail h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.artist-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.artist-detail li {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.artist-detail li:last-child {
+  border-bottom: none;
+}
+
+.artist-detail li img {
+  margin-right: 1rem;
+  object-fit: cover;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.artist-detail li p {
+  margin: 0 1rem 0 0;
+}
+
+.artist-detail li a {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #007bff;
+  border: 1px solid #007bff;
+  margin-left: 0.5rem;
+}
+
+.artist-detail li a:hover {
+  background-color: #e0f7fa;
+}

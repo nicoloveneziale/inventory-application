@@ -5,6 +5,7 @@ const {
   newMusicPost,
   musicUpdateGet,
   musicUpdatePost,
+  musicDeleteGet,
 } = require("../controllers/musicController");
 
 const {
@@ -45,6 +46,8 @@ router.get("/artists/:artistId", artistGet);
 router.get("/albums/:musicId/update", musicUpdateGet);
 
 router.post("/albums/:musicId/update", musicUpdatePost);
+
+router.get("/albums/:musicId/delete", musicDeleteGet);
 
 router.get("/", getAllMusic);
 

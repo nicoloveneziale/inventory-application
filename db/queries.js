@@ -134,6 +134,10 @@ async function insertArtist(artistName) {
   await pool.query("INSERT INTO artists (name) VALUES ($1)", [artistName]);
 }
 
+async function deleteMusic(musicId) {
+  await pool.query("DELETE FROM music WHERE musicId = ($1)", [musicId]);
+}
+
 module.exports = {
   getAllMusic,
   getAllCDs,
@@ -146,4 +150,5 @@ module.exports = {
   getArtist,
   getMusicById,
   updateMusic,
+  deleteMusic,
 };

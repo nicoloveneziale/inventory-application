@@ -1,25 +1,32 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= artist.name %></title>
     <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <h1><%= artist.name %></h1>
-    <div>
-        <h1>Music</h1>
-        
-    <ul>
-        <% music.forEach((album) => { %>
-            <li>
-                <p><%= album.albumname %></p>
-                <p><%= album.type %></p>
-                <p><%= album.name%></p>
-                <p><%= album.releasedate%></p>
-                <a href="/albums/<%= album.musicid %>/update">Update</a>
-                <a href="/albums/<%= album.musicid %>/delete">Delete</a>
-            </li>
-        <% }); %>
-    </ul>
+</head>
+<body>
+    <div class="artist-detail">
+        <h1><%= artist.name %></h1>
+        <div>
+            <h1>Music</h1>
+            <ul>
+                <% music.forEach((album) => { %>
+                    <li>
+                        <% if (album.albumcover) { %>
+                            <img src="../<%=album.albumcover%>" alt="<%= album.albumname%> Cover">
+                        <% } %>
+                        <p><%= album.albumname %></p>
+                        <p><%= album.type %></p>
+                        <p><%= album.name%></p>
+                        <p><%= album.releasedate%></p>
+                        <a href="/albums/<%= album.musicid %>/update">Update</a>
+                        <a href="/albums/<%= album.musicid %>/delete">Delete</a>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
     </div>
-  </body>
+</body>
 </html>

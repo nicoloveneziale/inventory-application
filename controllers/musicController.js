@@ -42,9 +42,7 @@ async function newMusicPost(req, res) {
 
 async function musicUpdateGet(req, res) {
   const album = await db.getMusicById(req.params.musicId);
-  console.log(album);
   const artists = await db.getAllArtists();
-  console.log(album);
   res.render("updateForm", {
     type: "albums",
     album: album[0],
@@ -60,10 +58,16 @@ async function musicUpdatePost(req, res) {
   res.redirect("/");
 }
 
+async function musicDeleteGet(req, res) {
+  await db.deleteMusic(req.params.musicId);
+  res.redirect("/");
+}
+
 module.exports = {
   getAllMusic,
   newMusicGet,
   newMusicPost,
   musicUpdateGet,
   musicUpdatePost,
+  musicDeleteGet,
 };

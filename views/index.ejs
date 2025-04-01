@@ -1,57 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1><%= title %></h1>
-    <a href="albums/new">New Album</a>
-    <a href="artists/new">New Artist</a>
-    <div>
-        <h1>Music</h1>
-        <h2>Vinyls</h2>
-    <ul>
-        <% vinyls.forEach((album) => { %>
-            <li>
-                <% if (album.albumcover) { %>
-                    <img src="../<%=album.albumcover%>" alt="<%= album.albumcover %> Cover" style="max-width: 100px; max-height: 100px;">
-                <% } %>
-                <p><%= album.albumname %></p>
-                <p><%= album.type %></p>
-                <p><%= album.name %></p>
-                <p><%= album.releasedate %></p>
-                <% console.log(album) %>
-                 <a href="/albums/<%= album.musicid %>/update">Update</a>
-                <a href="/albums/<%= album.musicid %>/delete">Delete</a>
-            </li>
-        <% }); %>
-    </ul>
-    <h2>CDs</h2>
-    <ul>
-        <% cds.forEach((album) => { %>
-            <li>
-                <% if (album.albumcover) { %>
-                    <img src="../<%=album.albumcover%>" alt="<%= album.albumname%> Cover" style="max-width: 100px; max-height: 100px;">
-                <% } %>
-                <p><%= album.albumname %></p>
-                <p><%= album.type %></p>
-                <p><%= album.name %></p>
-                <p><%= album.releasedate %></p>
-                <a href="/albums/<%= album.musicid %>/update">Update</a>
-                <a href="/albums/<%= album.musicid %>/delete">Delete</a>
-            </li>
-        <% }); %>
-    </ul>
-    </div>
-    <div>
-        <h1>Artists</h1>
-        <% artists.forEach((artist) => { %>
-            <li>
-                <a href="/artists/<%= artist.artistid %>">
-                <p><%= artist.name %></p>
-                </a>
-            </li>
-        <% }); %>
-    </div>
+    <header>
+        <h1><%= title %></h1>
+        <nav>
+            <a href="albums/new">New Album</a>
+            <a href="artists/new">New Artist</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="music-section">
+            <h1>Music</h1>
+            <h2>Vinyls</h2>
+            <div class="album-grid">
+                <% vinyls.forEach((album) => { %>
+                    <div class="album-card">
+                        <% if (album.albumcover) { %>
+                            <img src="../<%= album.albumcover %>" alt="<%= album.albumname %> Cover" class="album-cover">
+                        <% } %>
+                        <div class="album-info">
+                            <p class="album-name"><%= album.albumname %></p>
+                            <p class="artist-name"><%= album.name %></p>
+                            <p class="release-date"><%= album.releasedate %></p>
+                            <div class="album-actions">
+                                <a href="/albums/<%= album.musicid %>/update">Update</a>
+                                <a href="/albums/<%= album.musicid %>/delete">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            
+            <h2>CDs</h2>
+            <div class="album-grid">
+                <% cds.forEach((album) => { %>
+                    <div class="album-card">
+                        <% if (album.albumcover) { %>
+                            <img src="../<%= album.albumcover %>" alt="<%= album.albumname %> Cover" class="album-cover">
+                        <% } %>
+                        <div class="album-info">
+                            <p class="album-name"><%= album.albumname %></p>
+                            <p class="artist-name"><%= album.name %></p>
+                            <p class="release-date"><%= album.releasedate %></p>
+                            <div class="album-actions">
+                                <a href="/albums/<%= album.musicid %>/update">Update</a>
+                                <a href="/albums/<%= album.musicid %>/delete">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+        
+        <section class="artist-section">
+            <h1>Artists</h1>
+            <ul class="artist-list">
+                <% artists.forEach((artist) => { %>
+                    <li class="artist-item">
+                        <a href="/artists/<%= artist.artistid %>">
+                            <p><%= artist.name %></p>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>

@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <% if (type == "albums") { %>
     <form
       method="POST"
       action=<%="/"+ type + "/new"%>
       enctype="multipart/form-data"
     >
       <h1>New <%=type%></h1>
-      <% if (type == "albums") { %>
       <input
         placeholder="Album Name"
         name="albumName"
@@ -33,15 +33,22 @@
         <option value="CD">CD</option>
       </select>
       <input type="file" name="albumCover" accept="image/*" />
+      <button type="submit">Submit</button>
+          </form>
       <% } else if (type == "artists") { %>
+        <form
+      method="POST"
+      action=<%="/"+ type + "/new"%>
+    >
+      <h1>New <%=type%></h1>
       <input
         placeholder="Artist Name"
         name="artistName"
         type="text"
         required
       />
-      <% } %>
       <button type="submit">Submit</button>
-    </form>
+      </form>
+      <% } %>
   </body>
 </html>
